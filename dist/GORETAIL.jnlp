@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<jnlp spec="1.0" xmlns:jfx="http://javafx.com" href="GORETAIL.jnlp">
+  <information>
+    <title>GORETAIL</title>
+    <vendor>WISDOM IBANGA</vendor>
+    <description>null</description>
+    <offline-allowed/>
+  </information>
+  <resources>
+    <j2se version="1.6+" href="http://java.sun.com/products/autodl/j2se"/>
+    <jar href="GORETAIL.jar" size="158629" download="eager" />
+    <jar href="lib\itext-pdfa-5.3.1-javadoc.jar" size="104059" download="eager" />
+    <jar href="lib\itext-pdfa-5.3.1-sources.jar" size="19678" download="eager" />
+    <jar href="lib\itext-pdfa-5.3.1.jar" size="16446" download="eager" />
+    <jar href="lib\itext-xtra-5.3.1-javadoc.jar" size="220804" download="eager" />
+    <jar href="lib\itext-xtra-5.3.1-sources.jar" size="77995" download="eager" />
+    <jar href="lib\itext-xtra-5.3.1.jar" size="53670" download="eager" />
+    <jar href="lib\itextpdf-5.3.1-javadoc.jar" size="3684702" download="eager" />
+    <jar href="lib\itextpdf-5.3.1-sources.jar" size="1796318" download="eager" />
+    <jar href="lib\itextpdf-5.3.1.jar" size="1765230" download="eager" />
+    <jar href="lib\jfoenix.jar" size="2202429" download="eager" />
+    <jar href="lib\json-20160810.jar" size="54495" download="eager" />
+    <jar href="lib\pdfbox-app-2.0.4.jar" size="7985270" download="eager" />
+    <jar href="lib\sqlite-jdbc-3.16.1.jar" size="6161579" download="eager" />
+  </resources>
+  <applet-desc  width="800" height="600" main-class="com.javafx.main.NoJavaFXFallback"  name="GORETAIL" >
+    <param name="requiredFXVersion" value="8.0+"/>
+  </applet-desc>
+  <jfx:javafx-desc  width="800" height="600" main-class="goretail.GORETAIL"  name="GORETAIL" />
+  <update check="always"/>
+</jnlp>

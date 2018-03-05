@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Font?>
+
+<GridPane xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="goretail.FXMLForgotSuccessController">
+   <columnConstraints>
+      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
+   </columnConstraints>
+   <rowConstraints>
+      <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+   </rowConstraints>
+   <children>
+      <AnchorPane id="AnchorPane" minHeight="690.0" minWidth="1400.0" prefHeight="690.0" prefWidth="1400.0" style="-fx-background-color: #fafafa;">
+      <children>
+            <ImageView fitHeight="340.0" fitWidth="430.0" layoutX="530.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@gr-transparent.png" />
+               </image>
+            </ImageView>
+            <JFXButton fx:id="ret" buttonType="RAISED" layoutX="574.0" layoutY="501.0" onAction="#onReturnPressed" prefHeight="39.0" prefWidth="249.0" ripplerFill="#fafafa" style="-fx-background-color: #0077cc;" text="RETURN" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </JFXButton>
+            <Label layoutX="567.0" layoutY="345.0" prefHeight="27.0" prefWidth="263.0" text="An email has been sent to you." textFill="#001e33">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
+   </children>
+</GridPane>

@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import com.jfoenix.controls.JFXTreeTableView?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="488.0" prefWidth="598.0" style="-fx-background-color: #fafafa;" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="goretail.sales.FXMLCheckController">
+   <children>
+      <JFXButton buttonType="RAISED" layoutX="28.0" layoutY="444.0" onAction="#onCancelClicked" prefHeight="33.0" prefWidth="124.0" ripplerFill="#fafafa" style="-fx-background-color: #525e71;" text="CANCEL" textFill="#fafafa">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </JFXButton>
+      <JFXButton buttonType="RAISED" layoutX="448.0" layoutY="444.0" onAction="#onPrintClicked" prefHeight="33.0" prefWidth="124.0" ripplerFill="#0077cc" style="-fx-background-color: #1c6425;" text="PROCESS" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </JFXButton>
+      <Label layoutX="28.0" layoutY="14.0" prefHeight="39.0" prefWidth="80.0" text="CHECKOUT" textFill="#0077cc">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Label>
+      <Label layoutX="28.0" layoutY="52.0" prefHeight="39.0" prefWidth="48.0" text="Items" textFill="#f50202">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Label>
+      <JFXTextField fx:id="amtcollected" labelFloat="true" layoutX="392.0" layoutY="66.0" maxWidth="179.0" minWidth="169.0" prefHeight="46.0" prefWidth="169.0" promptText="Amount Received">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </JFXTextField>
+      <AnchorPane layoutX="28.0" layoutY="378.0" prefHeight="3.0" prefWidth="277.0" style="-fx-background-color: #001e33;" />
+      <Label layoutX="129.0" layoutY="397.0" prefHeight="39.0" prefWidth="48.0" text="NGN">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="25.0" layoutY="405.0" prefHeight="20.0" prefWidth="34.0" text="Total">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Label>
+      <Label fx:id="amt" layoutX="176.0" layoutY="397.0" prefHeight="39.0" prefWidth="137.0">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Label>
+      <JFXTreeTableView fx:id="treeView" layoutX="28.0" layoutY="89.0" prefHeight="266.0" prefWidth="277.0" style="-fx-background-color: #ffffff;" />
+   </children>
+</AnchorPane>

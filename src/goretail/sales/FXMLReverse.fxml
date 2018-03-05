@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="221.0" prefWidth="334.0" style="-fx-background-color: #fafafa;" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="goretail.sales.FXMLReverseController">
+   <children>
+      <JFXButton buttonType="RAISED" layoutX="28.0" layoutY="160.0" prefHeight="33.0" prefWidth="124.0" ripplerFill="#fafafa" style="-fx-background-color: #525e71;" text="CANCEL" textFill="#fafafa">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </JFXButton>
+      <JFXButton buttonType="RAISED" layoutX="185.0" layoutY="160.0" prefHeight="33.0" prefWidth="124.0" ripplerFill="#0077cc" style="-fx-background-color: #f50202;" text="YES" textFill="#fafafa">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </JFXButton>
+      <Label layoutX="91.0" layoutY="27.0" prefHeight="39.0" prefWidth="152.0" text="Are you sure you want" textFill="#f50202">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Label>
+      <Label layoutX="78.0" layoutY="55.0" prefHeight="39.0" prefWidth="179.0" text="to reverse this transaction" textFill="#f50202">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Label>
+      <JFXTextField layoutX="83.0" layoutY="98.0" maxWidth="179.0" minWidth="169.0" prefHeight="46.0" prefWidth="169.0" promptText="Enter your password">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </JFXTextField>
+   </children>
+</AnchorPane>

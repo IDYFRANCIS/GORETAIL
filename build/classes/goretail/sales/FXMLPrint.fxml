@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="221.0" prefWidth="334.0" style="-fx-background-color: #fafafa;" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="goretail.sales.FXMLPrintController">
+   <children>
+      <JFXButton buttonType="RAISED" layoutX="28.0" layoutY="156.0" onAction="#onCancelClicked" prefHeight="33.0" prefWidth="124.0" ripplerFill="#fafafa" style="-fx-background-color: #525e71;" text="CANCEL" textFill="#fafafa">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </JFXButton>
+      <JFXButton buttonType="RAISED" layoutX="185.0" layoutY="156.0" onAction="#onYesClicked" prefHeight="33.0" prefWidth="124.0" ripplerFill="#0077cc" style="-fx-background-color: #f50202;" text="YES" textFill="#fafafa">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </JFXButton>
+      <Label layoutX="115.0" layoutY="11.0" prefHeight="39.0" prefWidth="104.0" text="PRINT RECEIPT" textFill="#f50202">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Label>
+      <Label layoutX="48.0" layoutY="55.0" prefHeight="39.0" prefWidth="115.0" text="CHANGE:    NGN" textFill="#f50202">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Label>
+      <Label fx:id="change" layoutX="162.0" layoutY="55.0" prefHeight="39.0" prefWidth="115.0" textFill="#f50202">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Label>
+      <JFXComboBox fx:id="printers" layoutX="48.0" layoutY="88.0" prefHeight="39.0" prefWidth="244.0" promptText="Select Printer" />
+      <Label fx:id="error" layoutX="210.0" layoutY="127.0" prefHeight="25.0" prefWidth="84.0" text="SELECT PRINTER" textFill="#f50202" visible="false">
+         <font>
+            <Font name="System Bold" size="10.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>

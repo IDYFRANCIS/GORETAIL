@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="221.0" prefWidth="334.0" style="-fx-background-color: #fafafa;" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="goretail.sales.FXMLSyncController">
+   <children>
+      <Label layoutX="122.0" layoutY="33.0" prefHeight="39.0" prefWidth="90.0" text="UPLOADING" textFill="#f50202">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Label>
+      <Label fx:id="status" layoutX="105.0" layoutY="97.0" prefHeight="39.0" prefWidth="156.0" textFill="#f50202">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Label>
+      <JFXButton fx:id="done" buttonType="RAISED" layoutX="219.0" layoutY="170.0" onAction="#onDoneClicked" prefHeight="33.0" prefWidth="83.0" ripplerFill="#f8f8f8" style="-fx-background-color: #0077cc;" text="Ok" textFill="#fffefe" visible="false">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </JFXButton>
+   </children>
+</AnchorPane>

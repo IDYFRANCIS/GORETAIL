@@ -1,0 +1,68 @@
+.label-name{
+    -fx-padding: 0.7em 0.57em;
+    -fx-font-size: 16px;
+    -fx-background-color: #0077cc;
+    -fx-pref-width: 200;
+    -fx-text-fill: WHITE;
+    -fx-font-weight: Bold;
+}
+
+.button-raised{
+    -fx-padding: 0.7em 0.57em;
+    -fx-font-size: 16px;
+    -fx-background-color: #0077cc;
+    -fx-pref-width: 200;
+    -fx-text-fill: WHITE;
+    -fx-font-weight: normal;
+}
+
+.text-raised{
+    -fx-font-size: 14px;
+    -fx-text-fill: WHITE;
+    -fx-font-weight: bold;
+}
+
+.color-grid{
+    -fx-background-color: #000000;
+}
+
+.color-back{
+    -fx-background-color: #000000;
+}
+
+.color-back2{
+    -fx-background-color: #fafafa;
+}
+.vbox-color{
+    -fx-background-color: #000000;
+}
+
+.scroll-pane {
+    -fx-background-color: black;
+}
+
+.scroll-bar:horizontal, .scroll-bar:vertical{
+    -fx-background-color:transparent;
+}
+
+.increment-button, .decrement-button {
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+}
+
+.scroll-bar:horizontal .track,
+.scroll-bar:vertical .track{
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+    -fx-background-radius: 0em;
+}
+
+.scroll-bar:horizontal .thumb,
+.scroll-bar:vertical .thumb {
+    -fx-background-color: #0077cc;
+    -fx-background-radius: 5em;
+}
+
+.scroll-pane > .corner {
+    -fx-background-color: black;
+}
