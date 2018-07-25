@@ -32,6 +32,7 @@ public class GORETAIL extends Application {
         stage.setScene(scene);
         stage.setMaximized(true);
         stage.setTitle("Login");
+        scene.getStylesheets().add(GORETAIL.class.getResource("style.css").toExternalForm());
         stage.getIcons().add(new Image(getClass().getResourceAsStream("gr-transparent.png")));
         stage.show();
     }

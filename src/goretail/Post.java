@@ -42,7 +42,7 @@ public class Post {
     {
         try {
             HttpURLConnection connection = null;
-            String targetURL = "http://5.77.43.22:8093/bzaccount/api/v1/account/passwordRecovery/1";
+            String targetURL = "http://5.77.43.22:8093/bzaccount/api/v2/account/passwordRecovery/1";
             URL url = new URL(targetURL);
             connection = (HttpURLConnection)url.openConnection();
             connection.setRequestMethod("POST");
@@ -66,7 +66,8 @@ public class Post {
             }
             rd.close();
             int code = connection.getResponseCode();
-            if((code == 200) || (code == 202))
+            //if((code == 200) || (code == 202))
+            if(code == 202)
             {
                 return response.toString();
             }else{
@@ -86,7 +87,7 @@ public class Post {
             String plain = "bzaccount" + ":" + "bzaccountSignKey";
             String base64encodedString = Base64.getEncoder().encodeToString(plain.getBytes("utf-8"));
             HttpURLConnection connection = null;
-            String targetURL = "http://5.77.43.22:8093/bzaccount/api/v1/oauth/token";
+            String targetURL = "http://5.77.43.22:8093/bzaccount/api/v2/oauth/token";
             URL url = new URL(targetURL);
             connection = (HttpURLConnection)url.openConnection();
             connection.setRequestMethod("POST");
@@ -155,7 +156,8 @@ public class Post {
             rd.close();
             
             int code = connection.getResponseCode();
-            if((code == 200) || (code == 201))
+            //if((code == 200) || (code == 201))
+            if(code == 201)
             {
                 //System.out.println(response.toString());
                 return response.toString();
@@ -198,7 +200,8 @@ public class Post {
             }
             rd.close();
             int code = connection.getResponseCode();
-            if((code == 200) || (code == 201) || (code == 202))
+            //if((code == 200) || (code == 201) || (code == 202))
+            if(code == 201)
             {
                 if(response.toString().contains("Invalid voucher"))
                     return "Invalid";

@@ -3,8 +3,10 @@
 <?import com.jfoenix.controls.JFXButton?>
 <?import com.jfoenix.controls.JFXPasswordField?>
 <?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Hyperlink?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ProgressIndicator?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -13,7 +15,7 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Font?>
 
-<GridPane xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="goretail.FXMLHOMEController">
+<GridPane xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="goretail.FXMLHOMEController">
    <columnConstraints>
       <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
    </columnConstraints>
@@ -21,43 +23,95 @@
       <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
    </rowConstraints>
    <children>
-      <AnchorPane minHeight="690.0" minWidth="1400.0" prefHeight="690.0" prefWidth="1400.0" style="-fx-background-color: #fafafa;">
+      <AnchorPane fx:id="pane" minHeight="690.0" minWidth="1400.0" prefHeight="690.0" prefWidth="1400.0" style="-fx-background-color: #fafafa;" stylesheets="@style.css">
          <children>
-            <ImageView fitHeight="340.0" fitWidth="430.0" layoutX="530.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@gr-transparent.png" />
-               </image>
-            </ImageView>
-            <JFXTextField fx:id="username" focusColor="#0077cc" labelFloat="true" layoutX="562.0" layoutY="299.0" maxWidth="271.0" minWidth="264.0" prefHeight="46.0" prefWidth="271.0" promptText="Phone / Email" unFocusColor="#001e33">
-               <font>
-                  <Font size="16.0" />
-               </font>
-            </JFXTextField>
-            <JFXPasswordField fx:id="password" focusColor="#0077cc" labelFloat="true" layoutX="564.0" layoutY="381.0" maxWidth="271.0" minWidth="255.0" prefHeight="46.0" prefWidth="271.0" promptText="Password" unFocusColor="#001e33">
-               <font>
-                  <Font size="16.0" />
-               </font>
-            </JFXPasswordField>
-            <Label fx:id="error" layoutX="626.0" layoutY="452.0" prefHeight="29.0" prefWidth="150.0" text="Invalid Login Details" textFill="RED" visible="false">
-               <font>
-                  <Font size="16.0" />
-               </font>
-            </Label>
-            <JFXButton fx:id="login" buttonType="RAISED" layoutX="576.0" layoutY="507.0" onAction="#onLoginPressed" prefHeight="39.0" prefWidth="249.0" ripplerFill="#fafafa" style="-fx-background-color: #0077cc;" text="LOGIN" textFill="WHITE">
-               <font>
-                  <Font name="System Bold" size="14.0" />
-               </font>
-            </JFXButton>
-            <Hyperlink fx:id="forgot" layoutX="623.0" layoutY="606.0" onAction="#onForgotPressed" prefHeight="35.0" prefWidth="150.0" text="Forgot Password">
-               <font>
-                  <Font size="18.0" />
-               </font>
-            </Hyperlink>
-            <Label fx:id="loading" layoutX="664.0" layoutY="559.0" prefHeight="22.0" prefWidth="72.0" text="Loading......." textFill="#001e33" visible="false">
-               <font>
-                  <Font size="14.0" />
-               </font>
-            </Label>
+            <AnchorPane layoutX="79.0" layoutY="104.0" prefHeight="498.0" prefWidth="380.0" style="-fx-background-color: #fafafa;">
+               <children>
+                  <ImageView fitHeight="222.0" fitWidth="291.0" layoutX="79.0" layoutY="-48.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@gr-transparent.png" />
+                     </image>
+                  </ImageView>
+                  <JFXTextField fx:id="username" focusColor="#0077cc" labelFloat="true" layoutX="51.0" layoutY="137.0" maxWidth="271.0" minWidth="264.0" prefHeight="46.0" prefWidth="271.0" promptText="Email address/ Phone number" unFocusColor="#001e33">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </JFXTextField>
+                  <JFXPasswordField fx:id="password" focusColor="#0077cc" labelFloat="true" layoutX="51.0" layoutY="226.0" maxWidth="271.0" minWidth="255.0" prefHeight="46.0" prefWidth="271.0" promptText="Password" unFocusColor="#001e33">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </JFXPasswordField>
+                  <Label fx:id="error" alignment="CENTER" contentDisplay="CENTER" layoutX="45.0" layoutY="372.0" prefHeight="29.0" prefWidth="289.0" text="Invalid Login Details" textFill="RED" visible="false">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </Label>
+                  <JFXButton fx:id="login" buttonType="RAISED" layoutX="62.0" layoutY="322.0" onAction="#onLoginPressed" prefHeight="39.0" prefWidth="249.0" ripplerFill="#fafafa" style="-fx-background-color: #001e33;" text="LOGIN" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font>
+                  </JFXButton>
+                  <Hyperlink fx:id="forgot" layoutX="112.0" layoutY="434.0" onAction="#onForgotPressed" prefHeight="35.0" prefWidth="150.0" text="Forgot Password">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Hyperlink>
+                  <Label layoutX="168.0" layoutY="88.0" prefHeight="20.0" prefWidth="45.0" text="Online">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="loading" layoutX="89.0" layoutY="355.0" prefHeight="35.0" prefWidth="160.0" textFill="#001e33">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                     <graphic>
+                        <ProgressIndicator fx:id="indicator" visible="false" />
+                     </graphic>
+                  </Label>
+               </children>
+               <opaqueInsets>
+                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+               </opaqueInsets>
+               <padding>
+                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+               </padding>
+            </AnchorPane>
+            <AnchorPane layoutX="530.0" layoutY="-2.0" opacity="0.8" prefHeight="731.0" prefWidth="871.0" style="-fx-background-color: #050E16;">
+                <children>
+                  <Label layoutX="87.0" layoutY="206.0" prefHeight="39.0" prefWidth="130.0" text="Easy To Use" textFill="#fafafa">
+                     <font>
+                        <Font size="24.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="85.0" layoutY="299.0" prefHeight="39.0" prefWidth="213.0" text="Monitor Your Store" textFill="#fafafa">
+                     <font>
+                        <Font size="24.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="86.0" layoutY="397.0" prefHeight="39.0" prefWidth="187.0" text="Be More Efficient" textFill="#fafafa">
+                     <font>
+                        <Font size="24.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="87.0" layoutY="251.0" prefHeight="20.0" prefWidth="213.0" text="Simple And Easy User Experience" textFill="WHITE">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="87.0" layoutY="342.0" prefHeight="20.0" prefWidth="340.0" text="Give Your Retail Business The Best Chance Of Success" textFill="WHITE">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="87.0" layoutY="437.0" prefHeight="20.0" prefWidth="537.0" text="Your Store Is Precious, And Your Time Is Valuable... So We Made goRetail To Help Out" textFill="WHITE">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+               </children>
+            </AnchorPane>
          </children>
       </AnchorPane>
    </children>

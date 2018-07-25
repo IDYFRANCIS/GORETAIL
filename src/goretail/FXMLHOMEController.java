@@ -25,7 +25,9 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Hyperlink;
 import javafx.scene.control.Label;
+import javafx.scene.control.ProgressIndicator;
 import javafx.scene.image.Image;
+import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import org.json.JSONObject;
 
@@ -35,6 +37,9 @@ import org.json.JSONObject;
  */
 public class FXMLHOMEController implements Initializable {
     
+     @FXML
+    private AnchorPane pane;
+
     @FXML
     private JFXTextField username;
 
@@ -53,6 +58,9 @@ public class FXMLHOMEController implements Initializable {
     @FXML
     private Label loading;
 
+     @FXML
+    private ProgressIndicator indicator;
+
     static String user = "";
     static String pass = "";
     
@@ -63,7 +71,7 @@ public class FXMLHOMEController implements Initializable {
         Scene scene = new Scene(root);
         stage.setScene(scene);
         stage.setMaximized(true);
-        stage.setTitle("Reset");
+        stage.setTitle("Reset password");
         stage.getIcons().add(new Image(getClass().getResourceAsStream("gr-transparent.png")));
         stage.show();
         ((Node)event.getSource()).getScene().getWindow().hide();
@@ -76,41 +84,56 @@ public class FXMLHOMEController implements Initializable {
     
     @FXML
     void onLoginPressed(ActionEvent event) throws IOException {
-        login.setDisable(true);
+        login.setVisible(false);
         user = username.getText();
         pass = password.getText();
-        if(user.length() < 1)
+        if(user.length() < 1 || user.isEmpty())
         {
             login.setDisable(false);
+            //ErrorHelper.showJFXTextFieldError(username,"Username can not be empty!!" );
+            error.setText("Empty value not allowed!!!");
+            login.setVisible(true);
             username.requestFocus();
+            error.setVisible(true);
         }else if(pass.length() < 1)
         {
-            login.setDisable(false);
-            password.requestFocus();
+             login.setDisable(false);
+             //ErrorHelper.showJFXPasswordFielddError(password,"Username can not be empty!!" );
+              error.setText("password can not be empty!!");
+              error.setVisible(true);
+              login.setVisible(true);
+              password.requestFocus();
         }else
         {
-            loading.setVisible(true);
-            error.setVisible(false);
+                error.setVisible(false);
+                ErrorHelper.showLoadingIndicator(indicator);
+                             loading.setVisible(true);
+                             final int TIMEOUT=100000;
             Task task = new Task<Void>() {
                 @Override
                 public Void call() throws Exception {
                     Platform.runLater(() -> {
                         if(Post.netIsAvailable())
                         {
+                            
                             Platform.runLater(() -> {
                                 String response = Post.loginToken(user, pass);
                                 if(response.equals("Invalid"))
                                 {
-                                    login.setDisable(false);
+                                   login.setDisable(false);
+                                    error.setText(response+ " User details");
                                     error.setVisible(true);
                                     loading.setVisible(false);
+                                     login.setVisible(true);
                                     username.requestFocus();
                                 }else
                                 {
+                                    
                                     JSONObject j = new JSONObject(response);
                                     GORETAIL.access_token = j.getString("access_token");
                                     GORETAIL.refresh_token = j.getString("refresh_token");
                                     String res = Post.login(GORETAIL.access_token);
+                                    System.out.println(res);
                                     JSONObject json = new JSONObject(res);
                                     JSONObject jsondata = json.getJSONObject("data");
                                     String userid = jsondata.getString("userId");
@@ -158,6 +181,7 @@ public class FXMLHOMEController implements Initializable {
                                                 Stage stage = new Stage();
                                                 Parent root;
                                                 try {
+                                                     
                                                     root = FXMLLoader.load(getClass().getResource("sales/FXMLSales.fxml"));
                                                     Scene scene = new Scene(root);
                                                     scene.getStylesheets().add(FXMLHOMEController.class.getResource("style.css").toExternalForm());

@@ -66,3 +66,9 @@
 .scroll-pane > .corner {
     -fx-background-color: black;
 }
+
+#pane{
+    -fx-background-image: url("female-cashier.jpg");
+    -fx-background-repeat: stretch;   
+    -fx-background-position: center center;
+}

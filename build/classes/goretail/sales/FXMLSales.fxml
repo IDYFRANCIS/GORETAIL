@@ -13,7 +13,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<GridPane xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="goretail.sales.FXMLSalesController">
+<GridPane xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="goretail.sales.FXMLSalesController">
    <columnConstraints>
       <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
    </columnConstraints>
@@ -43,7 +43,7 @@
                   <Image url="@../icons8-shutdown-48.png" />
                </image>
             </ImageView>
-            <JFXButton buttonType="RAISED" layoutX="110.0" layoutY="130.0" prefHeight="35.0" prefWidth="190.0" style="-fx-background-color: #0077cc;" text="SALES" textFill="WHITE">
+            <JFXButton buttonType="RAISED" disable="true" layoutX="110.0" layoutY="130.0" prefHeight="35.0" prefWidth="190.0" style="-fx-background-color: #0077cc;" text="SALES" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="12.0" />
                </font>

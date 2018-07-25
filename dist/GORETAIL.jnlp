@@ -8,7 +8,12 @@
   </information>
   <resources>
     <j2se version="1.6+" href="http://java.sun.com/products/autodl/j2se"/>
-    <jar href="GORETAIL.jar" size="158629" download="eager" />
+    <jar href="GORETAIL.jar" size="310520" download="eager" />
+    <jar href="lib\barbecue-1.5-beta1.jar" size="91079" download="eager" />
+    <jar href="lib\dpfpenrollment.jar" size="323314" download="eager" />
+    <jar href="lib\dpfpverification.jar" size="33662" download="eager" />
+    <jar href="lib\dpotapi.jar" size="58858" download="eager" />
+    <jar href="lib\dpotjni.jar" size="11465" download="eager" />
     <jar href="lib\itext-pdfa-5.3.1-javadoc.jar" size="104059" download="eager" />
     <jar href="lib\itext-pdfa-5.3.1-sources.jar" size="19678" download="eager" />
     <jar href="lib\itext-pdfa-5.3.1.jar" size="16446" download="eager" />

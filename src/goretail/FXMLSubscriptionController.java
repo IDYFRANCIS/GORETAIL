@@ -27,6 +27,7 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
+import javafx.scene.control.ProgressIndicator;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
@@ -49,19 +50,25 @@ public class FXMLSubscriptionController implements Initializable {
 
     @FXML
     private Label loading;
+    
+     @FXML
+    private ProgressIndicator indicatorpro;
 
     @FXML
     private Label error;
 
     @FXML
     void onsubscribePressed(ActionEvent event) {
+        subscribe.setVisible(false);
         error.setVisible(false);
+        ErrorHelper.showLoadingIndicator(indicatorpro);
         loading.setVisible(true);
         String num = number.getText();
-        if(num.length() < 1)
+        if(num.length() < 1|| num.isEmpty())
         {
-            loading.setVisible(false);
-            number.requestFocus();
+             loading.setVisible(false);
+              number.requestFocus();
+              subscribe.setVisible(true);
         }else
         {
             Task task = new Task<Void>() {
@@ -76,6 +83,8 @@ public class FXMLSubscriptionController implements Initializable {
                             {
                                 number.requestFocus();
                                 loading.setVisible(false);
+                                error.setText(response + " Voucher number");
+                                subscribe.setVisible(true);
                                 error.setVisible(true);
                             }else
                             {
@@ -115,6 +124,7 @@ public class FXMLSubscriptionController implements Initializable {
                         number.requestFocus();
                         error.setVisible(true);
                         loading.setVisible(false);
+                         subscribe.setVisible(true);
                     }
                 });
                     return null;

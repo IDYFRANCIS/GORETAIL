@@ -42,6 +42,173 @@ import org.json.JSONObject;
  */
 public class Print{
     
+    private String firstTen(String value) {
+        StringBuilder b = new StringBuilder();
+        int i = 0;
+        while(i < 9)
+        {
+            b.append(value.charAt(i));
+            i++;
+        }
+        b.append(".");
+        return b.toString();
+    }
+    
+    private String nameParse(String value)
+    {
+        int space = 0;
+        switch(value.length())
+        {
+            case 1:
+                space = 33;
+                break;
+            case 2:
+                space = 31;
+                break;
+            case 3:
+                space = 29;
+                break;
+            case 4:
+                space = 28;
+                break;
+            case 5:
+                space = 26;
+                break;
+            case 6:
+                space = 24;
+                break;
+            case 7:
+                space = 22;
+                break;
+            case 8:
+                space = 20;
+                break;
+            case 9:
+                space = 18;
+                break;
+            case 10:
+                space = 16;
+                break;
+            case 11:
+                space = 14;
+                break;
+            case 12:
+                space = 12;
+                break;
+            case 13:
+                space = 10;
+                break;
+            case 14:
+                space = 8;
+                break;
+            case 15:
+                space = 6;
+                break;
+            case 16:
+                space = 4;
+                break;
+            case 17:
+                space = 2;
+                break;
+            default:
+                space = 33;            
+        }
+        StringBuilder bd = new StringBuilder();
+        //if(space == 34)
+        if(false)
+        {
+            bd.append(firstTen(value));
+            space = 14;
+            while(space >= 0)
+            {
+                bd.append(" ");
+                space--;
+            }
+        }else
+        {
+            bd.append(value);
+            while(space >= 0)
+            {
+                bd.append(" ");
+                space--;
+            }
+        }
+        return bd.toString();
+    }
+    
+    private String qtyParse(String value)
+    {
+        int space = 0;
+        switch(value.length())
+        {
+            case 1:
+                space = 8;
+                break;
+            case 2:
+                space = 6;
+                break;
+            case 3:
+                space = 4;
+                break;
+            case 4:
+                space = 2;
+                break;
+            case 5:
+                space = 0;
+                break;
+            default:
+                space = 8;            
+        }
+        StringBuilder bd = new StringBuilder();
+        bd.append(value);
+        while(space >= 0)
+        {
+            bd.append(" ");
+            space--;
+        }
+        return bd.toString();
+    }
+    
+    private String priceParse(String value)
+    {
+        int space = 0;
+        switch(value.length())
+        {
+            case 1:
+                space = 10;
+                break;
+            case 2:
+                space = 8;
+                break;
+            case 3:
+                space = 6;
+                break;
+            case 4:
+                space = 4;
+                break;
+            case 5:
+                space = 2;
+                break;
+            default:
+                space = 10;            
+        }
+        StringBuilder bd = new StringBuilder();
+        bd.append("N");
+        bd.append(value);
+        bd.append(".00");
+        while(space >= 0)
+        {
+            bd.append(" ");
+            space--;
+        }
+        return bd.toString();
+    }
+    
+    private String totalParse(String qty, String price)
+    {
+        return String.valueOf(Integer.valueOf(qty) * Integer.valueOf(price));
+    }
+    
     public void init(String goods, String printname)
     {
         List<String> list2a = new ArrayList<String>();
@@ -87,52 +254,46 @@ public class Print{
             
             Image image  = Image.getInstance(Print.class.getClassLoader().getResource("goretail/sales/printlogo.png"));
             doc.add(image);
+            
+            
             doc.add(new Paragraph("-----------------------------------------------"));
             doc.add(new Paragraph(FXMLHOMEController.USEname, 
                     FontFactory.getFont(FontFactory.HELVETICA, 8, Font.BOLD, BaseColor.BLACK)));
             doc.add(new Paragraph(FXMLHOMEController.USEaddress, 
                     FontFactory.getFont(FontFactory.HELVETICA, 6, Font.BOLD, BaseColor.BLACK)));
             doc.add(new Paragraph("-----------------------------------------------"));
-        
+    
+            
             String time = new SimpleDateFormat("yyyyMMddHHmmss").format(Calendar.getInstance().getTime());
             doc.add(new Paragraph("Ref. Number: " + time,
                     FontFactory.getFont(FontFactory.HELVETICA, 8, Font.BOLD, BaseColor.BLACK)));
             
-            doc.add(new Paragraph("                             Qty                        Amount(NGN)",
-                FontFactory.getFont(FontFactory.HELVETICA, 8, Font.BOLD, BaseColor.BLACK)));
             
+            doc.add(new Paragraph("Qty      Item Name                  Total",
+                FontFactory.getFont(FontFactory.HELVETICA, 8, Font.BOLD, BaseColor.BLACK)));
+            doc.add(new Paragraph("-----------------------------------------------"));
+        
             for(int ii = 0; ii < list2a.size(); ii++){
-                doc.add(new Paragraph(list2b.get(ii) + " ( @ NGN" + list2c.get(ii) + ".00 Unit Price )",
-                    FontFactory.getFont(FontFactory.HELVETICA, 8, Font.BOLD, BaseColor.BLACK)));
-                doc.add(new Paragraph("                               " + list2d.get(ii) + 
-                        "                                 " + String.valueOf(Integer.valueOf(list2c.get(ii)) * Integer.valueOf(list2d.get(ii))),
+                doc.add(new Paragraph(qtyParse(list2d.get(ii)) + nameParse(list2b.get(ii)) 
+                        + "N" + totalParse(list2d.get(ii), list2c.get(ii)) + ".00",
                     FontFactory.getFont(FontFactory.HELVETICA, 8, Font.BOLD, BaseColor.BLACK)));
             }
+            doc.add(new Paragraph("-----------------------------------------------"));
             
             doc.add(new Paragraph(""));
             doc.add(new Paragraph(""));
-            doc.add(new Paragraph("AMOUNT: NGN " + amount,
+            doc.add(new Paragraph("Total Amount: N" + amount,
                     FontFactory.getFont(FontFactory.HELVETICA, 8, Font.BOLD, BaseColor.BLACK)));
-            doc.add(new Paragraph("MONEY COLLECTED: NGN " + jx.amountPop(String.valueOf(FXMLCheckController.amount)),
+            doc.add(new Paragraph("Amount Paid: N" + jx.amountPop(String.valueOf(FXMLCheckController.amount)),
                     FontFactory.getFont(FontFactory.HELVETICA, 8, Font.BOLD, BaseColor.BLACK)));
-            doc.add(new Paragraph("CHANGE: NGN " + String.valueOf(FXMLCheckController.amount - FXMLCheckController.sum) + ".00",
+            doc.add(new Paragraph("Balance: N" + String.valueOf(FXMLCheckController.amount - FXMLCheckController.sum) + ".00",
                     FontFactory.getFont(FontFactory.HELVETICA, 8, Font.BOLD, BaseColor.BLACK)));
-            int day, month, year;
-            GregorianCalendar date = new GregorianCalendar();
-            day = date.get(Calendar.DAY_OF_MONTH);
-            month = date.get(Calendar.MONTH);
-            year = date.get(Calendar.YEAR);
-            Date date2 = new Date();
-            String strDateFormat = "HH:mm:ss a";
-            SimpleDateFormat sdf = new SimpleDateFormat(strDateFormat);
+       
             doc.add(new Paragraph("-----------------------------------------------"));
             doc.add(new Paragraph("Powered by: BizzdeskGroup Limited",
                     FontFactory.getFont(FontFactory.HELVETICA, 6, Font.BOLD, BaseColor.BLACK)));
-            doc.add(new Paragraph(String.valueOf(day) + " " + monthname(month+1) + " " + String.valueOf(year) + "   "
-                    + sdf.format(date2),
-                    FontFactory.getFont(FontFactory.HELVETICA, 6, Font.BOLD, BaseColor.BLACK)));
-            doc.add(new Paragraph(""));
             doc.add(new Paragraph("-----------------------------------------------"));
+            
             doc.close();
         
             PDDocument document = PDDocument.load(new File("receipt.pdf"));

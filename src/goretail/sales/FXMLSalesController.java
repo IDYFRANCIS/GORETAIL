@@ -61,6 +61,7 @@ import org.json.JSONObject;
 public class FXMLSalesController implements Initializable {
 
     static String closeRef = "";
+    
     class CloseHandler implements EventHandler<MouseEvent> {
         private final String number;
         CloseHandler(String number) {
@@ -689,6 +690,8 @@ public class FXMLSalesController implements Initializable {
     
     @FXML
     void omInventory(ActionEvent event) {
+        
+     
         try {
             Stage stage = new Stage();
             Parent root = FXMLLoader.load(getClass().getResource("FXMLInventory.fxml"));
@@ -948,6 +951,7 @@ public class FXMLSalesController implements Initializable {
         
         Platform.runLater(() -> {
             String gd = sql.getgoods();
+            System.out.println( "products:"+ gd);
             if(gd.length() > 20)
             {
                 wiseman.setVisible(false);

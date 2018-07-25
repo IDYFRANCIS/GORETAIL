@@ -20,6 +20,9 @@
     -fx-pref-width: 20;
 }
 
+.home-goback{
+     -fx-background-image: url("previous_blue.png");
+}
 .text-raised{
     -fx-font-size: 14px;
     -fx-text-fill: WHITE;

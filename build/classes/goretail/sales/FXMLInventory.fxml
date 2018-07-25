@@ -12,7 +12,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<GridPane xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="goretail.sales.FXMLInventoryController">
+<GridPane xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="goretail.sales.FXMLInventoryController">
    <columnConstraints>
       <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
    </columnConstraints>
@@ -37,7 +37,7 @@
                   <Font name="System Bold" size="12.0" />
                </font>
             </JFXButton>
-            <JFXButton buttonType="RAISED" layoutX="287.0" layoutY="130.0" onAction="#onInventoryClicked" prefHeight="35.0" prefWidth="170.0" style="-fx-background-color: #0077cc;" text="INVENTORY" textFill="WHITE">
+            <JFXButton buttonType="RAISED" disable="true" layoutX="287.0" layoutY="130.0" onAction="#onInventoryClicked" prefHeight="35.0" prefWidth="170.0" style="-fx-background-color: #0077cc;" text="INVENTORY" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="12.0" />
                </font>

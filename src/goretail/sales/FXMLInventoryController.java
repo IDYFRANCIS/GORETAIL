@@ -653,6 +653,8 @@ public class FXMLInventoryController implements Initializable {
             receive.setVisible(false);
             FXMLInventoryController.supplie = "";
             String orders = Post.getOrders();
+            //display order
+            System.out.print(orders);
             if(orders.length() < 5)
             {
                 System.out.println("Error. No data");

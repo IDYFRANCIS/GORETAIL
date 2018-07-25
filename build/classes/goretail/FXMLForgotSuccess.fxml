@@ -18,23 +18,61 @@
       <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
    </rowConstraints>
    <children>
-      <AnchorPane id="AnchorPane" minHeight="690.0" minWidth="1400.0" prefHeight="690.0" prefWidth="1400.0" style="-fx-background-color: #fafafa;">
+      <AnchorPane id="pane" fx:id="pane" minHeight="690.0" minWidth="1400.0" prefHeight="690.0" prefWidth="1400.0" style="-fx-background-color: #fafafa;" stylesheets="@style.css">
       <children>
-            <ImageView fitHeight="340.0" fitWidth="430.0" layoutX="530.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@gr-transparent.png" />
-               </image>
-            </ImageView>
-            <JFXButton fx:id="ret" buttonType="RAISED" layoutX="574.0" layoutY="501.0" onAction="#onReturnPressed" prefHeight="39.0" prefWidth="249.0" ripplerFill="#fafafa" style="-fx-background-color: #0077cc;" text="RETURN" textFill="WHITE">
-               <font>
-                  <Font name="System Bold" size="14.0" />
-               </font>
-            </JFXButton>
-            <Label layoutX="567.0" layoutY="345.0" prefHeight="27.0" prefWidth="263.0" text="An email has been sent to you." textFill="#001e33">
-               <font>
-                  <Font name="System Bold" size="18.0" />
-               </font>
-            </Label>
+            <AnchorPane layoutX="79.0" layoutY="104.0" prefHeight="498.0" prefWidth="380.0" style="-fx-background-color: #fafafa;">
+               <children>
+                  <ImageView fitHeight="222.0" fitWidth="291.0" layoutX="79.0" layoutY="-48.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@gr-transparent.png" />
+                     </image>
+                  </ImageView>
+                  <JFXButton fx:id="ret" buttonType="RAISED" layoutX="66.0" layoutY="277.0" onAction="#onReturnPressed" prefHeight="39.0" prefWidth="249.0" ripplerFill="#fafafa" style="-fx-background-color: #001e33;" text="Home" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font>
+                  </JFXButton>
+                  <Label layoutX="59.0" layoutY="182.0" prefHeight="27.0" prefWidth="263.0" text="An email has been sent to you." textFill="#001e33">
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font>
+                  </Label>
+               </children>
+            </AnchorPane>
+            <AnchorPane layoutX="530.0" layoutY="-2.0" opacity="0.8" prefHeight="731.0" prefWidth="871.0" style="-fx-background-color: #050E16;">
+                <children>
+                  <Label layoutX="87.0" layoutY="206.0" prefHeight="39.0" prefWidth="130.0" text="Easy To Use" textFill="#fafafa">
+                     <font>
+                        <Font size="24.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="85.0" layoutY="299.0" prefHeight="39.0" prefWidth="213.0" text="Monitor Your Store" textFill="#fafafa">
+                     <font>
+                        <Font size="24.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="86.0" layoutY="397.0" prefHeight="39.0" prefWidth="187.0" text="Be More Efficient" textFill="#fafafa">
+                     <font>
+                        <Font size="24.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="87.0" layoutY="251.0" prefHeight="20.0" prefWidth="213.0" text="Simple And Easy User Experience" textFill="WHITE">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="87.0" layoutY="342.0" prefHeight="20.0" prefWidth="340.0" text="Give Your Retail Business The Best Chance Of Success" textFill="WHITE">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="87.0" layoutY="437.0" prefHeight="20.0" prefWidth="537.0" text="Your Store Is Precious, And Your Time Is Valuable... So We Made goRetail To Help Out" textFill="WHITE">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+               </children>
+            </AnchorPane>
          </children>
       </AnchorPane>
    </children>
